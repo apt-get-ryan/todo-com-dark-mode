@@ -1,0 +1,115 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    --bg-color: #dfdfdf; /* variável de fundo da tela */
+    --header-bg: #ccc;  /* variável de fundo do cabeçalho */
+    --note-container-bg: green; /* variável de fundo do container de notas */
+
+    background: var(--bg-color);
+
+
+}
+
+.todo-container {
+    position: relative;
+    display: block;
+    max-width: 300px;
+    width: 100%;
+}
+.todo-header {
+    background: var(--header-bg);
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+#todo-textarea {
+    width: 100%;
+}
+
+
+
+
+
+
+.note-container {
+    background: var(--note-container-bg);
+    min-height: 400px;
+
+}
+.note {
+    min-height: 50px;
+    width: 100%;
+    border-left: 3px solid red;
+    border-bottom: 1px solid black ;
+    box-sizing: border-box;
+    padding: 8px 10px;
+}
+.did {
+    background: lightgreen;
+    border-left: 3px solid yellowgreen;
+}
+.note-title {
+    font-weight: bold;
+}
+
+
+.note-title {
+    border: 0;
+    outline: 0;
+    display: block;
+    height: 1.125rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+}
+.note-title br {
+    display: none;
+}
+.note-title:empty{
+    position: relative;
+    display: block;
+    
+}
+.note-title:empty::before {
+    content: 'Título';
+}
+
+
+
+
+.note-content {
+    padding-top: 2px;
+    width: 100%;
+    min-height: 1rem;
+    display: block;
+
+}
+.note-content:focus {
+    border: 0;
+    outline: 0;
+    display: block;
+}
+.note-content:empty{
+    position: relative;
+    display: block;
+    height: 1.125rem;
+}
+.note-content:empty::before {
+    content: '...';
+}
+.note-content:not(:focus) {
+    display: inline ;
+}
