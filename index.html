@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo list</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <noscript>
@@ -13,13 +15,21 @@
     </noscript>
     <div class="todo-container">
         <header class="todo-header">
-            <input name="todo-text" id="todo-search"/>
-            <button class=""> Search</button>
+            <input id="todo-search" placeholder="Pesquisar notas..."/>
+            <button id="search-button"> <i class="fa fa-search"></i></button>
         </header>
         <div class="notes-container">
             <div class="note did">
-                <span class="note-title" contenteditable="true" row="1"></span>
-                <span class="note-content" contenteditable="true" maxlenght="2"></span>
+                <div class="row-buttons">
+                    <input type="checkbox" class="toggle-priority" checked>
+                    <input type="checkbox" class="mark-as-deletable">   
+                </div>
+                <span class="note-title" contenteditable="true"></span>
+                <span class="note-content" contenteditable="true"></span>
+            </div>
+
+            <div class="note">
+                <span class="plus-signal">+</span>
             </div>
         </div>
     </div>

@@ -10,9 +10,9 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    --bg-color: #dfdfdf; /* variável de fundo da tela */
-    --header-bg: #ccc;  /* variável de fundo do cabeçalho */
-    --note-container-bg: green; /* variável de fundo do container de notas */
+    --bg-color: linear-gradient(260deg, #f6f6f6, white); /* variável de fundo da tela 20202a */
+    --header-bg: rgb(216, 216, 216);  /* variável de fundo do cabeçalho */
+    --note-container-bg: #dfdfdf; /* variável de fundo do container de notas */
 
     background: var(--bg-color);
 
@@ -32,47 +32,62 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-#todo-textarea {
+#todo-search {
     width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 8px 10px;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+#search-button{
+    color: white;
+    background: black;
+    font-size: 1.25rem;
+    border: 0;
+    outline: 0;
+    padding: 0px 12px;
 }
 
 
 
 
 
-
-.note-container {
+.notes-container {
     background: var(--note-container-bg);
-    min-height: 400px;
-
 }
 .note {
     min-height: 50px;
     width: 100%;
-    border-left: 3px solid red;
+    border-left: 3px solid grey;
     border-bottom: 1px solid black ;
     box-sizing: border-box;
     padding: 8px 10px;
+    position: relative;
+}
+.plus-signal {
+    color: grey;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: 900;
 }
 .did {
     background: lightgreen;
-    border-left: 3px solid yellowgreen;
+    border-left: 3px solid yellowgreen; /*alt color: palegreen*/
 }
-.note-title {
-    font-weight: bold;
-}
-
-
 .note-title {
     border: 0;
     outline: 0;
     display: block;
     height: 1.125rem;
-    width: 100%;
+    width: 80%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    font-weight: bold;
 
 }
 .note-title br {
@@ -111,5 +126,63 @@ body {
     content: '...';
 }
 .note-content:not(:focus) {
-    display: inline ;
+    display: block ;
+    width: 100%;
+    height: 1.125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.note-content:not(:focus) br {
+    display: none;
+}
+
+
+.row-buttons {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    right: 0px;
+}
+.toggle-priority {
+box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    appearance: none;
+    border-radius: 2px;
+    outline: 0;
+    background: linear-gradient(270deg, #D32F2F, orangered);
+    border: 1px solid #2F2F2F;
+    box-shadow: inset 0px 0px 3px black;
+    position: relative;
+    
+}
+.toggle-priority:checked {
+    background: linear-gradient(270deg, yellowgreen, lime);
+}
+.mark-as-deletable {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.mark-as-deletable:not(:checked){
+    appearance: none;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    
+}
+.mark-as-deletable:not(:checked)::before{
+    font-family: "FontAwesome"; 
+    font-weight: 500; 
+    content: "\f1f8";
+    display: block;
+    font-size: 1.25rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
