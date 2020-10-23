@@ -10,9 +10,9 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    --bg-color: linear-gradient(260deg, #f6f6f6, white); /* variável de fundo da tela 20202a */
+    --bg-color: linear-gradient(260deg, #fdfdfd, white); /* variável de fundo da tela 20202a */
     --header-bg: rgb(216, 216, 216);  /* variável de fundo do cabeçalho */
-    --note-container-bg: #dfdfdf; /* variável de fundo do container de notas */
+    --note-add-bg: #dfdfdf; /* variável de fundo do container de notas */
 
     background: var(--bg-color);
 
@@ -39,22 +39,16 @@ body {
     padding: 8px 10px;
     font-size: 1.1rem;
     box-sizing: border-box;
+    border-radius: 16px;
 }
-#search-button{
-    color: white;
-    background: black;
-    font-size: 1.25rem;
-    border: 0;
-    outline: 0;
-    padding: 0px 12px;
-}
+
 
 
 
 
 
 .notes-container {
-    background: var(--note-container-bg);
+    background: var();
 }
 .note {
     min-height: 50px;
@@ -77,6 +71,10 @@ body {
 .did {
     background: lightgreen;
     border-left: 3px solid yellowgreen; /*alt color: palegreen*/
+}
+.todo {
+    background: lightcoral;
+    border-left: 3px solid orangered;
 }
 .note-title {
     border: 0;
