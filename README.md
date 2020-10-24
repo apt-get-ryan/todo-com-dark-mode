@@ -5,12 +5,11 @@
  - [x] Estrutura HTML
  - [x] Estilização
  - [x] Implementar troca de temas
- - [ ] Implementar botão de descida rápida
  - [x] Implementar adição de notas
  - [x] Implementar edição de notas
- - [ ] Implementar exclusão de notas
- - [ ] Implementar pesquisa de notas
- - [ ] Implementar armazenamento das notas
+ - [x] Implementar exclusão de notas
+ - [x] Implementar pesquisa de notas
+ - [x] Implementar armazenamento das notas
  
  ### Considerações:
  - Contenteditable="true" é muito, muito útil.

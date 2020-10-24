@@ -52,8 +52,19 @@ body {
 
 .notes-container {
     background: var();
+    display: flex;
+    flex-direction: column;
 }
 .note {
+    min-height: 50px;
+    width: 100%;
+    border-left: 3px solid var(--note-add-left-border);
+    border-bottom: 1px solid black ;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    position: relative;
+}
+#add-note {
     min-height: 50px;
     width: 100%;
     border-left: 3px solid var(--note-add-left-border);
@@ -74,6 +85,7 @@ body {
 .did {
     background: lightgreen;
     border-left: 3px solid yellowgreen; /*alt color: palegreen*/
+    order: 1;
 }
 .todo {
     background: lightcoral;
@@ -216,4 +228,5 @@ box-sizing: border-box;
     font-size: 40px;
     padding-left: 8px;
     cursor: pointer;
+    text-shadow: 0px 0px 2px white;
 }

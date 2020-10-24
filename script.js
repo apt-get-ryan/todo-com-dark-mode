@@ -1,7 +1,6 @@
 const addNoteButton = document.querySelector("#add-note")
 const noteContainer = document.querySelector(".notes-container")
 const changeThemeButton = document.querySelector(".toggle-theme")
-let notesToDelete = document.querySelectorAll('.note')
 
 window.addEventListener("load", ()=> {
     if(localStorage.darkMode == 'true'){
@@ -11,11 +10,14 @@ window.addEventListener("load", ()=> {
     changeThemeButton.style = 'transition: transform 300ms ease;'
     if(localStorage.notesSaved != undefined)
         noteContainer.innerHTML = localStorage.notesSaved
+    const notes = document.querySelectorAll('.note')
+    notes.forEach(note => {
+        note.removeAttribute('style')
+    })
+    localStorage.setItem('notesSaved', noteContainer.innerHTML)
 })
 const toggleToDeleteList = (event) => {
-    const note = event.path[2]
     const checkbox = event.target
-    console.log(checkbox)
         if(checkbox.checked == true)
             checkbox.classList.add("to-delete")
         else
@@ -51,6 +53,7 @@ const note = `
 `
 const addNote = () => {
     noteContainer.insertAdjacentHTML('afterBegin',note)
+    localStorage.setItem("notesSaved", noteContainer.innerHTML)
 }
 addNoteButton.addEventListener("click", addNote)
 
@@ -80,3 +83,35 @@ changeThemeButton.addEventListener('change', ({target}) => {
     target.checked ? changeColors(darkMode) : changeColors(initalColor)
     localStorage.setItem('darkMode', target.checked)
 } )
+
+
+const removeNotesButton = document.querySelector('.remove-notes')
+const removeNotes = () => {
+    const checkboxMarkedToDelete = document.querySelectorAll('.to-delete')
+    checkboxMarkedToDelete.forEach(checkbox => {
+        checkbox.parentElement.parentElement.parentElement.removeChild(checkbox.parentElement.parentElement)
+    })
+    localStorage.setItem("notesSaved", noteContainer.innerHTML)
+}
+removeNotesButton.addEventListener('click', removeNotes)
+
+const searchBar = document.querySelector('#todo-search')
+const showNoteIfMatchValue = inputValue => (note) =>{
+    const noteTitle = note.querySelector('.note-title').textContent.toLowerCase()
+    const noteContent = note.querySelector('.note-content').textContent.toLowerCase()
+    
+    const noteContainsInputValue = 
+        noteTitle.includes(inputValue) || noteContent.includes(inputValue)
+    
+    if(noteContainsInputValue) {
+        note.style.display = 'block'
+        return
+    }
+    note.style.display = 'none'
+}
+const filterNotes = (event) => {
+    const inputValue = event.target.value
+    const notes = document.querySelectorAll('.note')
+    notes.forEach(showNoteIfMatchValue(inputValue))
+}
+searchBar.addEventListener('input', filterNotes)
