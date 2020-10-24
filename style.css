@@ -10,10 +10,10 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    --bg-color: linear-gradient(260deg, #fdfdfd, white); /* variável de fundo da tela 20202a */
+    --bg-color: linear-gradient(260deg, #fdfdfd, white); /* variável de fundo da tela 20202a 2f2f2f*/
     --header-bg: rgb(216, 216, 216);  /* variável de fundo do cabeçalho */
-    --note-add-bg: #dfdfdf; /* variável de fundo do container de notas */
-
+    --note-add-bg: #ddd; /* variável de fundo do container de notas */
+    --note-add-left-border: grey;
     background: var(--bg-color);
 
 
@@ -41,7 +41,10 @@ body {
     box-sizing: border-box;
     border-radius: 16px;
 }
-
+#add-note {
+    cursor: pointer;
+    background: var(--note-add-bg);
+}
 
 
 
@@ -53,14 +56,14 @@ body {
 .note {
     min-height: 50px;
     width: 100%;
-    border-left: 3px solid grey;
+    border-left: 3px solid var(--note-add-left-border);
     border-bottom: 1px solid black ;
     box-sizing: border-box;
     padding: 8px 10px;
     position: relative;
 }
 .plus-signal {
-    color: grey;
+    color: var(--note-add-left-border);
     font-size: 2rem;
     position: absolute;
     top: 50%;
@@ -183,4 +186,34 @@ box-sizing: border-box;
     left: 50%;
     transform: translate(-50%, -50%);
     
+}
+
+
+.control-row {
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+}
+.toggle-theme {
+    width: 40px;
+    height: 40px;
+    appearance: none;
+    outline: 0;
+    background: linear-gradient(to right, white 50%, 50%, black);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: white 4px solid;
+    box-shadow: 0px 0px 4px grey;
+    cursor: pointer;
+    /*transition: transform 300ms ease;*/
+}
+.toggle-theme:checked {
+    transform: scale(-1);
+
+}
+.fa-trash {
+    font-size: 40px;
+    padding-left: 8px;
+    cursor: pointer;
 }

@@ -4,7 +4,7 @@
 ## Objetivos:
  - [x] Estrutura HTML
  - [x] Estilização
- - [ ] Implementar troca de temas
+ - [x] Implementar troca de temas
  - [ ] Implementar botão de descida rápida
  - [x] Implementar adição de notas
  - [x] Implementar edição de notas
@@ -20,3 +20,6 @@
  - O uso do innerHTML para incluir a nota não funcionou corretamente, porém o insertAdjacentElement funcionou perfeitamente
 - O innerHTML funcionou, porém apenas quando o "placeholder de nota" se encontrava fora do .notes-container, porém por uma futura convenção eu decidi utilizar o insertAdjacentElement
 - Removido o botão de pesquisa da barra de procura
+- Adicionado opção de troca de temas e uso do localStorage para armazenar a preferência
+- tentei salvar a mudança de estado (feito/ a fazer) na nota usando .setAttribute, porém não consegui, resolvi o problema usando .removeattribute
+- Adicionado funcionalidade de armazenar as notas
