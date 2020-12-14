@@ -24,7 +24,7 @@ const toggleToDeleteList = (event) => {
             checkbox.classList.remove("to-delete")
 } 
 const togglePriority = (event) => {
-    const note = event.path[2]
+    const note = event.target.parentElement.parentElement;
     const checkboxValue = event.target.checked
     if(checkboxValue == true){
         note.classList.remove('did')
